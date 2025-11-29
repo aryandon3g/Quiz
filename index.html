@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A♥️R</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            backgroundSize: {
+              '200%': '200% auto',
+            },
+            fontFamily: {
+              sans: ['sans-serif'],
+            },
+            colors: {
+              primary: {
+                "50": "#f0f9ff",
+                "100": "#e0f2fe",
+                "200": "#bae6fd",
+                "300": "#7dd3fc",
+                "400": "#38bdf8",
+                "500": "#0ea5e9",
+                "600": "#0284c7",
+                "700": "#0369a1",
+                "800": "#075985",
+                "900": "#0c4a6e",
+                "950": "#082f49"
+              }
+            },
+            keyframes: {
+              'mesh-gradient': {
+                '0%': { transform: 'translate(0%, 0%) scale(1)' },
+                '25%': { transform: 'translate(20%, -20%) scale(1.2)' },
+                '50%': { transform: 'translate(-20%, 20%) scale(0.8)' },
+                '75%': { transform: 'translate(10%, -10%) scale(1.1)' },
+                '100%': { transform: 'translate(0%, 0%) scale(1)' },
+              },
+              'slide-in': {
+                '0%': { opacity: '0', transform: 'translateY(20px) scale(0.98)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+               'slide-out-left': {
+                '0%': { opacity: '1', transform: 'translateX(0)' },
+                '100%': { opacity: '0', transform: 'translateX(-50px)' },
+              },
+              'card-in-right': {
+                '0%': { opacity: '0', transform: 'translateX(50px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateX(0) scale(1)' },
+              },
+              'slide-out-right': {
+                '0%': { opacity: '1', transform: 'translateX(0)' },
+                '100%': { opacity: '0', transform: 'translateX(50px)' },
+              },
+              'card-in-left': {
+                '0%': { opacity: '0', transform: 'translateX(-50px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateX(0) scale(1)' },
+              },
+              'button-glow': {
+                '0%, 100%': { boxShadow: '0 0 10px -5px theme(colors.primary.500), 0 0 20px -10px theme(colors.primary.400)' },
+                '50%': { boxShadow: '0 0 20px -5px theme(colors.primary.500), 0 0 40px -10px theme(colors.primary.400)' },
+              },
+              'stagger-in': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'shake': {
+                '0%, 100%': { transform: 'translateX(0)' },
+                '20%, 60%': { transform: 'translateX(-3px)' },
+                '40%, 80%': { transform: 'translateX(3px)' },
+              },
+              'pulse-green': {
+                '0%': { boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)' },
+                '70%': { boxShadow: '0 0 0 10px rgba(34, 197, 94, 0)' },
+                '100%': { boxShadow: '0 0 0 0 rgba(34, 197, 94, 0)' },
+              },
+              'pulse-red': {
+                '0%': { boxShadow: '0 0 0 0 rgba(239, 68, 68, 0.7)' },
+                '70%': { boxShadow: '0 0 0 10px rgba(239, 68, 68, 0)' },
+                '100%': { boxShadow: '0 0 0 0 rgba(239, 68, 68, 0)' },
+              },
+              'insult-in-out': {
+                '0%': { opacity: '0', transform: 'scale(0.8) translateY(20px)' },
+                '10%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+                '90%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+                '100%': { opacity: '0', transform: 'scale(0.9) translateY(-10px)' },
+              },
+              'gradient-pan': {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              },
+              'zoom-in-out': {
+                '0%, 100%': { transform: 'scale(0.8)', opacity: '0' },
+                '20%, 80%': { transform: 'scale(1)', opacity: '1' },
+              },
+              'fade-in-up': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'xp-glow': {
+                '0%, 100%': { boxShadow: '0 0 5px rgba(34, 197, 94, 0.5)' },
+                '50%': { boxShadow: '0 0 15px rgba(34, 197, 94, 0.8)' },
+              },
+              'check-pop': {
+                '0%': { opacity: '0', transform: 'scale(0.5)' },
+                '50%': { opacity: '1', transform: 'scale(1.2)' },
+                '100%': { opacity: '0', transform: 'scale(0.8)' },
+              },
+            },
+            animation: {
+              'mesh-gradient': 'mesh-gradient 15s ease-in-out infinite',
+              'slide-in': 'slide-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+              'slide-out-left': 'slide-out-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'card-in-right': 'card-in-right 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'slide-out-right': 'slide-out-right 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'card-in-left': 'card-in-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards',
+              'button-glow': 'button-glow 3s ease-in-out infinite',
+              'stagger-in': 'stagger-in 0.5s ease-out forwards',
+              'shake': 'shake 0.3s ease-in-out',
+              'pulse-green': 'pulse-green 0.5s ease-out',
+              'pulse-red': 'pulse-red 0.5s ease-out',
+              'insult-in-out': 'insult-in-out 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+              'gradient-pan': 'gradient-pan 3s ease-in-out infinite',
+              'zoom-in-out': 'zoom-in-out 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+              'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+              'xp-glow': 'xp-glow 2s ease-in-out infinite',
+              'check-pop': 'check-pop 0.6s ease-out forwards',
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* From Uiverse.io by AqFox */
+      .spinner {
+        width: 44px;
+        height: 44px;
+        animation: spinner-y0fdc1 2s infinite ease;
+        transform-style: preserve-3d;
+      }
+
+      .spinner > div {
+        background-color: rgba(0,77,255,0.2);
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        border: 2px solid #004dff;
+      }
+
+      .spinner div:nth-of-type(1) {
+        transform: translateZ(-22px) rotateY(180deg);
+      }
+
+      .spinner div:nth-of-type(2) {
+        transform: rotateY(-270deg) translateX(50%);
+        transform-origin: top right;
+      }
+
+      .spinner div:nth-of-type(3) {
+        transform: rotateY(270deg) translateX(-50%);
+        transform-origin: center left;
+      }
+
+      .spinner div:nth-of-type(4) {
+        transform: rotateX(90deg) translateY(-50%);
+        transform-origin: top center;
+      }
+
+      .spinner div:nth-of-type(5) {
+        transform: rotateX(-90deg) translateY(50%);
+        transform-origin: bottom center;
+      }
+
+      .spinner div:nth-of-type(6) {
+        transform: translateZ(22px);
+      }
+
+      @keyframes spinner-y0fdc1 {
+        0% {
+          transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
+        }
+
+        50% {
+          transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
+        }
+
+        100% {
+          transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
+        }
+      }
+    </style>
+    
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.26.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.0",
+    "recharts": "https://aistudiocdn.com/recharts@^2.12.0",
+    "recharts/": "https://aistudiocdn.com/recharts@^2.12.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-100 dark:bg-primary-950 transition-colors duration-300 font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
